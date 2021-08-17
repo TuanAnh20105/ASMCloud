@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> </title>
+	<link rel="stylesheet" href="admin1.css">
+	<style>
+		#left {
+			width: 20%;
+			background-color: white;
+			float: left;
+			position: sticky;
+		}
+
+		#right {
+			width: 80%;
+			float: left;
+		}
+
+		.a {
+			text-decoration: none;
+			float: left;
+			text-decoration-style: none;
+			margin-top: 30px;
+			margin-left: 40px;
+		}
+
+
+		.but {
+			width: 200px;
+			height: 100px;
+			float: left;
+			background-color: white;
+			border: none;
+		}
+
+		button:hover {
+			background-color: black;
+			color: white;
+		}
+
+		li:hover {
+			background-color: black;
+			color: white;
+		}
+
+		li {
+			text-decoration: none;
+			list-style: none;
+			color: black;
+			width: 100%;
+			margin: auto;
+			width: auto;
+			font-size: 15px;
+			text-align: center;
+			height: 70px;
+			margin-top: 30px;
+
+		}
+
+		td {
+			margin-left: 30px;
+		}
+
+
+		.image {
+			width: 100%;
+			text-align: center;
+		}
+
+		#table tr td {
+			border: 1px solid black;
+		}
+
+		th {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<h1 style="font-size: 500%;">WELCOME ADMIN</h1>
+		<div id="center">
+			<div id="left">
+				<form action="/insert" method="post">
+					<table>
+						<tr> <b>Add new product</b> </tr>
+						<tr>
+							<td>ProductID:</td>
+							<td> <input type="text" name="ProductID"></td>
+						</tr>
+						<tr>
+							<td>Product Name</td>
+							<td><input type="text" name="txtName" id=""></td>
+						</tr>
+						<tr>
+							<td>Image:</td>
+							<td><input type="text" name="txtImage" id=""></td>
+						</tr>
+						<tr>
+							<td>Price:</td>
+							<td><input type="text" name="txtPrice" id=""></td>
+						</tr>
+						<tr>
+							<td>CatId</td>
+							<td><input type="text" name="CatID" id=""></td>
+						</tr>
+
+						<tr>
+
+							<td><input type="submit" name="Add" value="Add" id=""></td>
+							<td><button>Cancel</button></td>
+						</tr>
+					</table>
+			</div>
+			</form>
+			<div id="right">
+				<table id="table" style="background-color:#B4F2F8;">
+					<tr>
+						<th>ProductID</th>
+						<th>ProductName</th>
+						<th style="width: 200px;">Image</th>
+						<th>Price</th>
+						<th>CatId</th>
+						<th>Detail</th>
+						<th>Introduction</th>
+						<th>Delete</th>
+						<th>Update</th>
+
+					</tr>
+					<tr>
+						{{#each data}}
+						
+
+					<tr>
+						<td> {{name}} </td>
+						<td> {{prices}} </td>
+						<td><img class="image" src="{{image}}  "></td>
+						<td>
+							$r[3] </td>
+						<td>$r[4] </td>
+						<td>$r[5] </td>
+						<td> $r[6] </td>
+						<td><a href="/delete?id={{_id}}">Delete</a></td>
+						<td> <a href="/edit?id={{_id}}">Edit</a></td>
+					</tr>					
+					{{/each}}
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="footer"> </div>
+</body>
+
+</html>
