@@ -99,10 +99,10 @@ h2{
 				<input type="password" name="txtpassword" placeholder="Enter password" id="txtpassword">
 			</div>
 			<input type="submit" name="login" id="btn-login" value="Register">
-			<section>
-				<option> Admin</option>
-				<option>User</option>
-			</section>
+        <select name="role">
+            <option value="admin">Admin</option>
+            <option value="customer">Customer</option>
+        </select>
 		</form>
 		{{!-- <form action="/Sedan" method="post">
 		<input type="submit" name="login" id="btn-login" value="Login For Customer">

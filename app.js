@@ -1,6 +1,5 @@
 const EXPRESS = require('express')
 const { Int32} = require('mongodb');
-//https://downloads.mongodb.com/compass/mongodb-compass-1.28.1-win32-x64.exe
 const session = require('express-session')
 
 const {checkUserRole, insertUser,insertStudent,deleteStudent,searchStudent,getAllStudent,getStudentById,updateStudent} = require('./databaseHandler');
@@ -26,12 +25,12 @@ APP.get('/edit',async (req,res)=>{
     const search_Student = await getStudentById(idInput);
     res.render('edit',{student:search_Student})
 })
-APP.get('/login',(req,res)=>{
-    res.render('login')
+APP.get('/Login',(req,res)=>{
+    res.render('Login')
 })
 APP.post('/doLogin',async (req,res)=>{
-    const nameInput = req.body.txtName;
-    const passInput = req.body.txtPassword;
+    const nameInput = req.body.txtusername;
+    const passInput = req.body.txtpassword;
     const userRole = await checkUserRole(nameInput,passInput);
     if(userRole!="-1"){
         req.session["User"]={
@@ -69,14 +68,14 @@ APP.get('/' ,requiresLogin, async (req,res)=>{
     res.render('index',{data:allStudents,user:req.session["User"]})
 })
 APP.post('/register',async (req,res)=>{
-    const nameInput = req.body.txtName;
-    const passInput = req.body.txtPassword;
+    const nameInput = req.body.txtusername;
+    const passInput = req.body.txtpassword;
     const roleInput = req.body.role;
     await insertUser({name:nameInput,pass:passInput,role:roleInput})
-    res.redirect('/login')
+    res.redirect('/Login')
 })
 
-APP.get('/nologin',requiresLogin, (req,res)=>{
+APP.get('/noLogin',requiresLogin, (req,res)=>{
     res.render('noLogin');
 })
 
@@ -85,7 +84,7 @@ function requiresLogin(req,res,next){
     if(req.session["User"]){
         return next()
     }else{
-        res.redirect('/login')
+        res.redirect('/Login')
     }
 }
 
