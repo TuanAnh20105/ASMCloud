@@ -1,11 +1,12 @@
-const EXPRESS = require('express')
-const { Int32} = require('mongodb');
-const session = require('express-session')
+const EXPRESS = require('express') // khai báo thưu viện express
+const { Int32} = require('mongodb'); // khai báo thư viện mongodb
+const session = require('express-session') //khai báo thư viện check password
+// gọi các hàm trong file khác để dùng
+const {checkUserRole, insertUser,insertStudent,deleteStudent,searchStudent,getAllStudent,getStudentById,updateStudent} = require('./databaseHandler'); 
 
-const {checkUserRole, insertUser,insertStudent,deleteStudent,searchStudent,getAllStudent,getStudentById,updateStudent} = require('./databaseHandler');
-
-const APP = EXPRESS()
-
+const APP = EXPRESS();
+APP.use(EXPRESS.static( "/public")); // khai báo sử dụng css
+APP.use(EXPRESS.static(__dirname + '/public'));
 // Use the session middleware
 APP.use(session({ secret: '124447yd@@$%%#', cookie: { maxAge: 60000 },saveUninitialized:false,resave:false}))
 
@@ -32,24 +33,49 @@ APP.post('/doLogin',async (req,res)=>{
     const nameInput = req.body.txtusername;
     const passInput = req.body.txtpassword;
     const userRole = await checkUserRole(nameInput,passInput);
+    
     if(userRole!="-1"){
         req.session["User"]={
             name : nameInput,
             role : userRole
+            
         }
     }
-    res.redirect('/');
+    console.log("role là cái này nè  : "+ userRole);
+    
+    if(userRole=="customer"){
+        res.redirect('/Sedan');
+    }
+    else {
+        res.redirect('/index');
+    }
+    // if(userRole=="admin"){
+    //     res.redirect('/index');
+    // }
+    
+    // res.redirect('/');
+
+    
 })
 
 APP.post('/insert',async (req,res)=>{
     const nameInput = req.body.txtName;
-    const tuoiInput = req.body.txtTuoi;
-    const pictureInput = req.body.picture;
-    const newStudent = {name:nameInput,tuoi: Int32(tuoiInput),picture:pictureInput};
+    const tuoiInput = req.body.txtPrice;
+    const pictureInput = req.body.txtImage;
+    const newStudent = {name:nameInput,prices: Int32(tuoiInput),image:pictureInput};
     await insertStudent(newStudent);
-    //chuyen huong den file Index
     res.redirect('/');
 })
+APP.get('/Sedan' ,requiresLogin, async (req,res)=>{
+    const allStudents = await getAllStudent();
+    res.render('Sedan',{data:allStudents,user:req.session["User"]})
+})
+
+APP.get('/index' ,requiresLogin, async (req,res)=>{
+    const allStudents = await getAllStudent();
+    res.render('index',{data:allStudents,user:req.session["User"]})
+})
+
 APP.get('/delete',async (req,res)=>{
     const idInput = req.query.id;
     await deleteStudent(idInput);
@@ -62,8 +88,6 @@ APP.post('/search',async (req,res)=>{
 })
 
 APP.get('/' ,requiresLogin, async (req,res)=>{
-    // if(!req.session["User"])
-    //     res.redirect('/login')
     const allStudents = await getAllStudent();
     res.render('index',{data:allStudents,user:req.session["User"]})
 })
@@ -88,5 +112,5 @@ function requiresLogin(req,res,next){
     }
 }
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001  ;
 APP.listen(PORT);

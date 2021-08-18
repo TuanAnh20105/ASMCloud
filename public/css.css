@@ -1,0 +1,236 @@
+
+		#layout{
+			height: 50px;
+			width: 100%;
+			background-color: red;
+		}
+		#a1{
+			width: 100%;
+			height: 50px;
+			background-color: green;
+		}
+		#picture{
+			width: 100%;
+		}
+		.a8{
+			text-decoration: none;
+		}
+#a3{
+	width: 100px;
+	height: 100px;
+	margin-left: 20px;
+	margin-top: 20px;
+	float: left;
+	background-color: white;
+}
+
+
+#Contact li{
+	list-style: none;
+	list-style-type: none;
+	float: left;
+	padding: 20px;
+	margin-top: 20px;
+	margin-left: 30px;
+	float: left;
+}
+#a4{
+	width: 100%;
+	height: 600px;
+	float: left;
+}
+.anh{
+	width: 32%;
+	height: 100%;
+	float: left;
+	margin-left: 15px;
+}
+h3{
+	font-size: x-large;
+
+}
+.info{
+	background-color: white;
+	width: 200px;
+	height: 50px;
+	margin-left: 130px;
+	margin-top: 50px;
+	 border:1px solid black;
+	 float: left;
+}
+.a4{
+	width: 100%;
+	height: 400px;
+	float: left;
+}
+.abc{
+	width: 50%;
+	margin-left: 20px;
+	float: left; 
+}
+.xyz{
+	margin-top: 100px;
+}
+.s2{
+	float: left;
+	width: 31%;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.footer{
+	width: 100%;
+	height: 100px;
+	background-color: black;
+	float: left;
+	margin-top: 20px;
+}
+.but2{
+	width: 150px; 
+	height: 40px;
+	background-color: white;
+	border: none;
+}
+#Search{
+	width: 200px;
+	height: 30px;	
+	margin-top: 30px;
+	margin-left: 40px;
+	border-radius: 20px;
+}
+.but{
+	width: 150px; 
+	height: 50px;
+	float: left;
+	background-color: white;
+	color: black;
+	font-family: arial;
+	border: 3px solid black;
+	margin-left:180PX;
+	margin-top: 85px;
+
+}
+.but1{
+	width: 150px; 
+	height: 50px;
+	background-color: white;
+	color: black;
+	border: 3px solid black;
+	margin-left: 70px;
+}
+.para{
+	text-align: center;
+}
+.heading{
+	font-family: 24 ;
+	margin-left: 20px;
+	 font-size: xx-large;
+	  text-align: center;
+}
+.a5{
+	 text-align: center;
+	  margin-left: 180px;
+}
+.h2{
+	text-align: center;
+}
+#q1{
+	margin-top: 20px;
+}
+
+button:visited {
+  color: #8C8888;
+  background-color:black ;
+  text-decoration: none;
+}
+button:hover {
+  color: red;
+  background-color: black;
+  color: white;
+}
+button:active {
+  color: black;
+  background-color: #5F5B5B;
+ 
+}
+
+.s3{
+	text-align: center;
+	color: #848383;
+	margin-left: 50px;
+	font-size: 60%;
+	margin-top: 4px;
+	width: 100%;
+
+}
+.anh img{
+	margin-left: 7px;
+	margin-top: 10px;
+	float: left;
+	 margin-bottom: 50px; 
+}
+.h3{
+	text-align: center;
+	margin-top: 20px;
+}
+li:hover{
+	background-color: black;
+	color: white;
+}
+div	a{
+	text-align: center;
+}
+.m1{
+	width: 33%;	
+	height: 400px;
+	float: left;
+	margin-top: 20px;
+}
+.m4{
+	width: 50%;
+	float: left;
+	height: auto;
+	margin-left: 30%;	
+	margin-top: 50px;
+	margin-bottom: 50px;
+	clear:left;
+}
+.s0{
+	text-align: center;	
+	width: 	100%;
+	float: left;
+}
+.explore{ margin-left: 140px;
+width: 100px;
+height: 40px;
+background-color: white; }
+.m2
+.but0{
+	width: 300px; height: 100px; background-color: #0A8AEC ; position: relative; top:200px; left: 350px; margin-top: 40px;float: left;
+}
+.a7{
+	text-align: center;
+	text-decoration: none;
+	font-size: 200%; 
+
+}
+#c1{	
+	width: 100%;
+	height: 700px;
+	background-color: black;
+	float: left;
+}
+.l1{
+	width: 300px;
+	height: 1000px;
+	background-color: yellow;
+	float: left;
+}
+.p{text-align: center;}
+.a00{
+	text-decoration: none;
+	color: black;
+
+}
+.a00:hover{
+	color: white;
+}
