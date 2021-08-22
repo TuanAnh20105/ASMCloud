@@ -2,7 +2,7 @@ const EXPRESS = require('express') // khai báo thưu viện express
 const { Int32} = require('mongodb'); // khai báo thư viện mongodb
 const session = require('express-session') //khai báo thư viện check password
 // gọi các hàm trong file khác để dùng
-const {checkUserRole, insertUser,insertStudent,deleteStudent,searchStudent,getAllStudent,getStudentById,updateStudent} = require('./databaseHandler'); 
+const {checkUserRole, insertUser,insertStudent,deleteStudent,searchStudent,getAllStudent,getStudentById,updateStudent , insertBuyProduct} = require('./databaseHandler'); 
 
 const APP = EXPRESS();
 APP.use(EXPRESS.static( "/public")); // khai báo sử dụng css
@@ -12,7 +12,7 @@ APP.use(session({ secret: '124447yd@@$%%#', cookie: { maxAge: 60000 },saveUninit
 
 APP.use(EXPRESS.urlencoded({extended:true}))
 APP.set('view engine','hbs')
-
+var i = false;
 APP.post('/update',async (req,res)=>{
     const id = req.body.id;
     const nameInput = req.body.txtName;
@@ -25,6 +25,27 @@ APP.get('/edit',async (req,res)=>{
     const idInput = req.query.id;
     const search_Student = await getStudentById(idInput);
     res.render('edit',{student:search_Student})
+})
+APP.get('/detail',async (req,res)=>{
+    const idInput = req.query.id;
+    const search_Student = await getStudentById(idInput);
+    res.render('detail',{student:search_Student})
+})
+APP.post('/register',async (req,res)=>{
+    const nameInput = req.body.txtusername;
+    const passInput = req.body.txtpassword;
+    const roleInput = req.body.role;
+    await insertUser({name:nameInput,pass:passInput,role:roleInput})
+    res.redirect('/login')
+})
+
+APP.post('/add',async (req,res)=>{
+    const nameI = student.name;
+    const id = student.id;
+    const Pri = student.prices;
+
+    await insertBuyProduct({name:nameI,id:id,prices:Pri})
+    res.redirect('/Sedan')
 })
 APP.get('/Login',(req,res)=>{
     res.render('Login')
@@ -49,12 +70,6 @@ APP.post('/doLogin',async (req,res)=>{
     else {
         res.redirect('/index');
     }
-    // if(userRole=="admin"){
-    //     res.redirect('/index');
-    // }
-    
-    // res.redirect('/');
-
     
 })
 
@@ -71,12 +86,15 @@ APP.get('/Sedan' ,requiresLogin, async (req,res)=>{
     res.render('Sedan',{data:allStudents,user:req.session["User"]})
 })
 
+
 APP.get('/index' ,requiresLogin, async (req,res)=>{
     const allStudents = await getAllStudent();
     res.render('index',{data:allStudents,user:req.session["User"]})
 })
 
+
 APP.get('/delete',async (req,res)=>{
+
     const idInput = req.query.id;
     await deleteStudent(idInput);
     res.redirect('/');
@@ -91,12 +109,14 @@ APP.get('/' ,requiresLogin, async (req,res)=>{
     const allStudents = await getAllStudent();
     res.render('index',{data:allStudents,user:req.session["User"]})
 })
-APP.post('/register',async (req,res)=>{
-    const nameInput = req.body.txtusername;
-    const passInput = req.body.txtpassword;
-    const roleInput = req.body.role;
-    await insertUser({name:nameInput,pass:passInput,role:roleInput})
-    res.redirect('/Login')
+APP.get('/add' , (req , res)=>{
+
+
+   res.send('hello from simple server :)')
+
+})
+APP.get('/register' , (req , res)=>{
+    res.render('register');
 })
 
 APP.get('/noLogin',requiresLogin, (req,res)=>{
@@ -107,10 +127,11 @@ APP.get('/noLogin',requiresLogin, (req,res)=>{
 function requiresLogin(req,res,next){
     if(req.session["User"]){
         return next()
+        // i = true;
     }else{
         res.redirect('/Login')
     }
 }
 
-const PORT = process.env.PORT || 5001  ;
+const PORT = process.env.PORT || 5001 ;
 APP.listen(PORT);

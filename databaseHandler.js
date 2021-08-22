@@ -1,6 +1,7 @@
 const {MongoClient,ObjectId} = require('mongodb');
 
-const URL = 'mongodb://localhost:27017';
+//const URL = 'mongodb://localhost:27017';
+var URL = "mongodb+srv://anhntgch190543:Anhtuan1234@cluster0.xcwbs.mongodb.net/test";
 
 const DATABASE_NAME = "GCH0803DB"
 
@@ -22,6 +23,11 @@ async function insertStudent(newStudent) {
     console.log("Gia tri id moi duoc insert la: ", newS.insertedId.toHexString());
 }
 
+async function insertBuyProduct(newBuy) {
+    const dbo = await getDB();
+    const newS1 = await dbo.collection("BuyProducts").insertOne(newBuy);
+    console.log("Gia tri id moi duoc insert la: ", newS1.insertedId.toHexString());
+}
 async function deleteStudent(idInput) {
     const dbo = await getDB();
     await dbo.collection("students").deleteOne({ _id: ObjectId(idInput) });
@@ -58,4 +64,4 @@ async function checkUserRole(nameI,passI){
     }
 }
 
-module.exports = {getDB,insertStudent,deleteStudent,searchStudent,getAllStudent,getStudentById,updateStudent,insertUser,checkUserRole}
+module.exports = {getDB,insertStudent,deleteStudent,searchStudent,getAllStudent,getStudentById,updateStudent,insertUser,checkUserRole,insertBuyProduct}

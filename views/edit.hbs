@@ -1,20 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit student</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="admin.css">
 </head>
+<style>
+	.backg{
+		background-image: url("image/giangsinh2.png");
+		background-size: 100%;
+		background-repeat: no-repeat;
+
+	}
+	input[type=text] {
+  width: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 30px;
+}
+</style>
 <body>
-    <h5>Edit student</h5>
+<div id="banner">
+	<h1 style="font-size: 500%; text-align: center;" >EDIT PRODUCT</h1>
+</div>
      <form action="/update" method="post">
-        <input type="hidden" name="id" value="{{student._id}}">
-        Name <input type="text" name="txtName" value="{{student.name}}">
-        <br>
-        Tuoi <input type="text" name="txtTuoi" value="{{student.tuoi}}">
-        <br>
-        <input type="submit" value="Update">
-    </form>
+<div class="backg" style="height: 700px; width: 100%"> 
+	<div id="center1" style="margin-left: 600px ; width: 300px;">
+		<b>Name of Product Product:</b>> <br>
+		<input type="text" name="" id="" value="{{student.name}}"><br>
+		<b>Image of Product:</b> <br>
+		<img src="{{student.image}}"  width="80%" alt=""> <br>
+		<b>Price of product:</b>> <br>
+		<input type="text" name="" id="" value=" {{student.prices}}"> <br>
+	<input type="submit" name="edit" value="SUBMIT" id="">	
+	{{!-- <button style="width: 150px; height: 50px; margin-top: 30px; margin-left:50px; background-color:white;
+		border-radius: 30px" > UPDATE</button> --}}
+		</form>
+		{{!-- Introduction of product: <br>
+		<input type="text" name="" id="" value="<?=$r[6]?>"><br>
+	</div> <?php 
+}?> --}}
+
+<div id="center1" style="width: 300px;">
+	<div id="right" style=" margin-left: 600px;">
+
+	{{!-- <form action="">
+		Your Email: <br>
+		<input type="text" name="Email" id=""><br>
+		Your Name: <br>
+		<input type="text" name="Name" id=""> <br>
+		Your Address: <br>
+		<input type="text" name="Addr" id=""> <br>
+		Your Phone: <br>
+		<input type="text" name="Phone" id=""><br>
+		<input type="submit" name="Buy" id="" value="BUY">
+	</form> --}}
+	</div>
+	</div>
 </body>
 </html>

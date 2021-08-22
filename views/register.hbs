@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Login as administrator</title>
-	{{!-- <link rel="stylesheet" type="text/css" href="CSS_login.css"> --}}
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <style>
 	{
@@ -70,13 +71,22 @@ h2{
 	background: #3AA9CD;
 	cursor: pointer;
 }
+.select{
+    width: 100px;
+    font-size: 100%;
+    margin-left:30px;
+    margin-top: 10px;
+    border-radius: 30px;
+
+}
 	}
 </style>
 <body>
-<div class="wrap">
+    
+    <div class="wrap">
 	<div id="form-login">
-		<form action="/doLogin" method="post">
-			<h2>Form Login </h2>
+		<form action="/register" method="post">
+			<h2>Form Register </h2>
 			<div class="InputWithIcon">
 				<i class="fa fa-user" aria-hidden="true"></i>
 				<input type="text" name="txtusername" placeholder="Enter username" id="txtusername">
@@ -85,13 +95,15 @@ h2{
 				<i class="fa fa-lock" aria-hidden="true"></i>
 				<input type="password" name="txtpassword" placeholder="Enter password" id="txtpassword">
 			</div>
-			<input type="submit" name="login" id="btn-login" value="Login">
-			
+            <select  name="role" class="select">
+            <option value="admin">Admin</option>
+            <option value="customer">Customer</option>
+        </select>
+			<input type="submit" name="Register" id="btn-login" value="Register">			
 
 		</form>
-		<a href="/register">
-		<input type="submit" name="Register" id="btn-login" value="Register">			
-		</a>
+
+	
 	</div>
 </div>
 </body>
