@@ -1,53 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="css.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <style>
 
 </style>
+
 <body>
-		
-		<div id ="Layout" >
-		<div style="height: auto;width: auto; ">
-		<img src="https://www.modelcarhall.com/wp-content/uploads/2019/06/model-car-hall-generic-logo-mchof-proudly-circle-white.png"width="5%" style="margin-left: 10px;marin-right: 200px; float: left;"></div>
-	<div style=" float: left; margin-left : 200px">
-		<a class="a8"  href="homeadmin.php"><button class="but2"><b>HOME</b></button></a>
-		<a class="a8" href="sedan.php"><button class="but2"> <b>Infomation of Customer</b></button></a>
-		<a class="a8"  href="SUV.php"><button class="but2"><b>Infomation Line</b></button></a>
-		<a class="a8"  href="Coupes.php"><button class="but2"><b>Login For Customer</b></button></a>
-		<a class="a8"  href="future.php"><button class="but2"><b>Logout</b></button></a>
-	
+	<header>
+		<a href="#" class="logo"><i class="fas fa-car"></i>   ATN Company</a>
+		<nav class="navbar">
+			<a class="" href="#"><b>HOME</b></button></a>
+			<a class="" href="#"> <b>Infomation of Customer</b></a>
+			<a class="" href="#"><b>Infomation Line</b></a>
+			<a class="" href="#"><b>Login For Customer</b></a>
+			<a class="" href="#"><b>Logout</b></a>
+		</nav>
+		<div class="icons">
+			<i class="fas fa-bars" id="bars"></i>
+			<i class="fas fa-search" id="search-icon"></i>
+			<a class="fas fa-shopping-cart"></a>
+		</div>
+	</header>
+	{{!-- <form action="" id="search-form">
+		<input type="search" name="" placeholder="Search here..." id="search-box">
+		<label for="search-box" class="fas fa-search"></label>
+		<i class="fas-faf-times" id="close"></i>
+	</form> --}}
+	<div id="slider">
+		<img src="https://www.f1authentics.com/images/detailed/17/Category-Banner-1400x500px-MODELS-1.jpg" width="100%"
+			; height="50%">
+		<img style="display:none"
+			src="https://www.topgear.com/sites/default/files/news/image/2015/06/Large%20Image_27.jpg" width="100%" ;
+			height="50%">
+		<img style="display:none"
+			src="https://di-uploads-development.dealerinspire.com/dibrandhubjaguar/uploads/2019/06/I-PACE-FORMULA-E.png"
+			width="100%" ; height="50%">
+		<img style="display:none" src="https://pbs.twimg.com/media/Ej5UwxJWAAAp-k6.jpg" width="100%" ; height="50%">
+		<a href="#" id="prev"><img src=" " alt=""></a>
 	</div>
-<img src="http://cdn.shopify.com/s/files/1/0504/9925/6496/files/ModelCars-Logo-Final-Blk_Red_1200x1200.jpg?v=1618621093" width="100%"; height="50%">
+	<div id="content"><h1> CAR MODEL</h1></div>
 
-<h1> CAR MODEL</h1>
-{{#each data}}
+	{{#each data}}
 
-	 
-	<div class="m1" style="margin-left: auto"> 
-	<img  src="{{image}} " style=" width : 70% ; margin-left : 40px" >
-		{{!-- <p class="p"> {{prices}} </p> --}}
+
+	<div class="m1" style="margin-left: auto">
+		<img src="{{image}} " style=" width : 80% ; margin-left : 50px">
+		<p class="p">  Price:  {{prices}}$  </p>
 		<a class="a00" href="/detail?id={{_id}}"><button class="explore"> BUY</button></a>
-	</div>	
-	     
+	</div>
 
-{{/each}}
-		<div class="footer">
+
+	{{/each}}
+	<div class="footer">
 		<p style="color: #888585; text-align: center;margin-top: 30px">2020 Lexus Automobilies S.A.S.</p>
-		<div>	
-		<p class="s0">		
-		<a class="s3" href="Contact"> CONTACT US</a>
-		<a class="s3" href="Career">CAREER</a>
-		<a class="s3" href="MEDIA">MEDIA</a>
-		<a class="s3" href="DATA">GUARANTEE</a>
-		<a class="s3" href=""> SUPPORT</a>
-		<a class="s3" href="">FINANCIAL LEASING</a> 
-		</p>
+		<div>
+			<p class="s0">
+				<a class="s3" href="Contact"> CONTACT US</a>
+				<a class="s3" href="Career">CAREER</a>
+				<a class="s3" href="MEDIA">MEDIA</a>
+				<a class="s3" href="DATA">GUARANTEE</a>
+				<a class="s3" href=""> SUPPORT</a>
+				<a class="s3" href="">FINANCIAL LEASING</a>
+			</p>
 		</div>
-		</div>
+	</div>
 </body>
+
 </html>

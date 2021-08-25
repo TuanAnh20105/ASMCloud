@@ -17,9 +17,9 @@ async function insertUser(user) {
     console.log("Gia tri id moi duoc insert la: ", newS.insertedId.toHexString());
 }
 
-async function insertStudent(newStudent) {
+async function insertcar(newcar) {
     const dbo = await getDB();
-    const newS = await dbo.collection("students").insertOne(newStudent);
+    const newS = await dbo.collection("cars").insertOne(newcar);
     console.log("Gia tri id moi duoc insert la: ", newS.insertedId.toHexString());
 }
 
@@ -28,29 +28,29 @@ async function insertBuyProduct(newBuy) {
     const newS1 = await dbo.collection("BuyProducts").insertOne(newBuy);
     console.log("Gia tri id moi duoc insert la: ", newS1.insertedId.toHexString());
 }
-async function deleteStudent(idInput) {
+async function deletecar(idInput) {
     const dbo = await getDB();
-    await dbo.collection("students").deleteOne({ _id: ObjectId(idInput) });
+    await dbo.collection("cars").deleteOne({ _id: ObjectId(idInput) });
 }
-async function searchStudent(searchInput) {
+async function searchcar(searchInput) {
     const dbo = await getDB();
-    const allStudents = await dbo.collection("students").find({ name: searchInput }).toArray();
-    return allStudents;
+    const allcars = await dbo.collection("cars").find({ name: searchInput }).toArray();
+    return allcars;
 }
-async function getAllStudent() {
+async function getAllcar() {
     const dbo = await getDB();
-    const allStudents = await dbo.collection("students").find({}).toArray();
-    return allStudents;
-}
-
-async function getStudentById(idInput){
-    const dbo = await getDB();
-    return dbo.collection("students").findOne({_id:ObjectId(idInput)});
+    const allcars = await dbo.collection("cars").find({}).toArray();
+    return allcars;
 }
 
-async function updateStudent(id,nameInput,tuoiInput){
+async function getcarById(idInput){
     const dbo = await getDB();
-    dbo.collection("students").updateOne({_id:ObjectId(id)},{$set:{name:nameInput,tuoi:tuoiInput}})
+    return dbo.collection("cars").findOne({_id:ObjectId(idInput)});
+}
+
+async function updatecar(id,nameInput,tuoiInput){
+    const dbo = await getDB();
+    dbo.collection("cars").updateOne({_id:ObjectId(id)},{$set:{name:nameInput,tuoi:tuoiInput}})
 
 }
 async function checkUserRole(nameI,passI){
@@ -64,4 +64,4 @@ async function checkUserRole(nameI,passI){
     }
 }
 
-module.exports = {getDB,insertStudent,deleteStudent,searchStudent,getAllStudent,getStudentById,updateStudent,insertUser,checkUserRole,insertBuyProduct}
+module.exports = {getDB,insertcar,deletecar,searchcar,getAllcar,getcarById,updatecar,insertUser,checkUserRole,insertBuyProduct}
