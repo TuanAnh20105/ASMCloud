@@ -3,136 +3,107 @@
 
 <head>
 	<title> </title>
-	<link rel="stylesheet" href="admin1.css">
-	
+	<link rel="stylesheet" href="css.css">
+
 </head>
 
-<style> 
-input[type=text] {
-  width: 250px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border-radius: 30px;
-}
-a:hover{
-	color: white;
-}
-li{
-	text-align: center;
-	font-size: 20px;
-	text-decoration: none;
-	background-color:cornsilk;
-	
+<style>
+	input[type=text] {
+		width: 250px;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+		border-radius: 30px;
+	}
 
-}
-a{
+	li {
+		text-align: center;
+		font-size: 20px;
 		text-decoration: none;
-	
-	
-}
-li:hover{
-	color: white;
-	
-}
-button{
-	width: auto;
-	height: 40px;
-	background-color: white;
-	border-radius: 30px;
-	border: 1px solid black;
-	margin-top: 30px;
-	
-	clear: left;
-}
+		background-color: cornsilk;
+
+
+	}
+
+	a {
+		text-decoration: none;
+
+
+	}
+
+	li:hover {
+		color: white;
+
+	}
+
+	button {
+		width: auto;
+		height: 40px;
+		border-radius: 30px;
+		border: 1px solid black;
+		margin-top: 30px;
+
+		clear: left;
+	}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <body>
-
-hello
-	<div>
-		<h1 style="font-size: 500%; text-align:center">WELCOME ADMIN</h1>
-	
-	</div>
-	<hr>
-	<div style="margin-bottom:30px; float: left; margin-left : 200px;">
-		<a class="a8"  href="homeadmin.php"><button class="but2"><b>HOME</b></button></a>
-		<a class="a8" href="sedan.php"><button class="but2"> <b> INFORMATION CUSTOMER</b></button></a>
-		<a class="a8"  href="SUV.php"><button class="but2"><b>FOR SALE MANAGEMENT</b></button></a>
-		<a class="a8"  href="Coupes.php"><button class="but2"><b>LOGIN FOR HOME PAGE</b></button></a>
-		<a class="a8"  href="future.php"><button class="but2"><b>LOGOUT</b></button></a>
-	</div>
-<div id="center">
-			<div id="re" style="float: left;">
-				<form action="/search" method="post">
-					<b>Name</b>: <input type="text" name="txtSearch" />
-					<input style="background-color: white; width:100px; border-radius:20px;height:30px" type="submit" value="Search">
-				</form>
-			</div>
-			<div id="left">
-				<form action="/insert" method="post">
-					<table>
-						<tr> <b>Add new product</b> </tr>
-						{{!-- <tr>
-							<td>ProductID:</td>
-							<td> <input type="text" name="ProductID"></td>
-						</tr> --}}
-						<tr>
-							<td>Product Name</td>
-							<td><input type="text" name="txtName" id=""></td>
-						</tr>
-						<tr>
-							<td>Image:</td>
-							<td><input type="text" name="txtImage" id=""></td>
-						</tr>
-						<tr>
-							<td>Price:</td>
-							<td><input type="text" name="txtPrice" id=""></td>
-						</tr>
-						{{!-- <tr>
-							<td>CatId</td>
-							<td><input type="text" name="CatID" id=""></td>
-						</tr> --}}
-
-						<tr>
-							<td><input style=" width:100px; height:40px ;background-color:white ; border-radius:20px" type="submit" name="Add" value="Add" id=""> </td>
-							{{!-- <td><button  >Cancel</button></td> --}}
-						</tr>
-					</table>
-
-
-				</form>
-			</div>
-
-			<div id="right">
-				<table id="table" style="background-color: antiquewhite;">
-					<tr>
-						<th>ProductID</th>
-						<th>ProductName</th>
-						<th style="width: 200px;">Image</th>
-						<th>Price</th>
-						<th>Delete</th>
-						<th>Update</th>
-					</tr>
-					<tr>
-						{{#each data}}
-
-
-					<tr>
-						<td>{{_id}}</td>
-						<td> {{name}} </td>
-
-						<td><img class="image" src="{{image}}  "></td>
-
-						<td> {{prices}} </td>
-						<td><a href="/delete?id={{_id}}" onclick="return confirm('Are your sure?')">Delete</a></td>
-						<td> <a href="/edit?id={{_id}}">Edit</a></td>
-					</tr>
-					{{/each}}
-					</tr>
-				</table>
-			</div>
+	<header>
+		<a href="#" class="logo"><i class="fas fa-car"></i> ATN Company</a>
+		<nav class="navbar">
+			<a class="" href="#"><b>HOME</b></button></a>
+			<a class="" href="#"> <b>Infomation of Customer</b></a>
+			<a class="" href="/addProduct"><b>Add Product </b></a>
+			<a class="" href="/Sedan"><b>Login For Customer</b></a>
+			<a class="" href="/Login"><b>Logout</b></a>
+		</nav>
+		<div class="icons">
+			<i class="fas fa-bars" id="bars"></i>
+			<i class="fas fa-search" id="search-icon"></i>
+			<a class="fas fa-shopping-cart"></a>
 		</div>
-		<div id="footer"> </div>
+	</header>
+	<h1 style=" font-size:100px; margin-left:200px;margin-top:100px">WELCOME TO ADMIN</h1>
+
+	<div id="re" style="float: left;width:100%; margin-left:850px; margin-bottom:30px ">
+		<form action="/search" method="post">
+			<b> Search Name</b>: <input type="text" name="txtSearch" />
+			<input style="background-color: white; width:100px; border-radius:20px;height:30px; clear:left"
+				type="submit" value="Search">
+		</form>
+	</div>
+	<div id="right">
+		<table id="table">
+			<tr>
+				<th>ProductID</th>
+				<th>ProductName</th>
+				<th style="width: 200px;">Image</th>
+				<th>Price</th>
+				<th>Delete</th>
+				<th>Update</th>
+			</tr>
+			<tr>
+				{{#each data}}
+
+
+			<tr>
+				<td>{{_id}}</td>
+				<td style=" width:200px; text-align:center"> {{name}} </td>
+
+				<td style=" width:300px"><img class="image" src="{{image}}  "></td>
+
+				<td style=" width:100px;text-align:center"> {{prices}} </td>
+				<td style=" width:100px;text-align:center"><a href="/delete?id={{_id}}"
+						onclick="return confirm('Are your sure?')">Delete</a></td>
+				<td style=" width:100px;text-align:center"> <a href="/edit?id={{_id}}">Edit</a></td>
+			</tr>
+			{{/each}}
+			</tr>
+		</table>
+	</div>
+	</div>
+	<div id="footer"> </div>
 	</div>
 </body>
 

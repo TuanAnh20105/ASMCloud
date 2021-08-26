@@ -28,20 +28,18 @@
      <form action="/update" method="post">
 <div class="backg" style="height: 700px; width: 100%"> 
 	<div id="center1" style="margin-left: 600px ; width: 300px;">
+		<input type="text" name="id" id="" value="{{car._id}}"><br>
 		<b>Name of Product Product:</b>> <br>
-		<input type="text" name="" id="" value="{{car.name}}"><br>
+		<input type="text" name="txtname" id="" value="{{car.name}}"><br>
 		<b>Image of Product:</b> <br>
-		<img src="{{car.image}}"  width="80%" alt=""> <br>
+		<img src="{{car.image}}" width="80%" alt=""> <br>
+		
+		<input type="text" name="txtimage" id="" value="{{car.image}}"><br>
 		<b>Price of product:</b>> <br>
-		<input type="text" name="" id="" value=" {{car.prices}}"> <br>
-	<input type="submit" name="edit" value="SUBMIT" id="">	
-	{{!-- <button style="width: 150px; height: 50px; margin-top: 30px; margin-left:50px; background-color:white;
-		border-radius: 30px" > UPDATE</button> --}}
-		</form>
-		{{!-- Introduction of product: <br>
-		<input type="text" name="" id="" value="<?=$r[6]?>"><br>
-	</div> <?php 
-}?> --}}
+		<input type="text" name="txtprice" id=""  value=" {{car.prices}}"> <br>
+	<input type="submit"  value="SUBMIT" id="">	
+	</form>
+
 
 <div id="center1" style="width: 300px;">
 	<div id="right" style=" margin-left: 600px;">

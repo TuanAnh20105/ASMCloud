@@ -13,13 +13,17 @@
 	background-repeat: no-repeat;}
 
 #form-login{
+	
 	padding: 50px 10px;
 	width: 400px;
 	min-height: 100px;
-	background: beige;
+	background: rgba(0,0,0,.8);
 	margin: 0px auto;
 	margin-top: 80px;
 	border-radius: 30px;
+	border: 1px solid black;
+	margin-top: 100px;
+	height: 390px;
 }
 h2{
 	font-family: "Trebuchet MS";
@@ -70,13 +74,24 @@ h2{
 	background: #3AA9CD;
 	cursor: pointer;
 }
+body{
+	background-image: url(https://anhnendep.net/wp-content/uploads/2015/06/hinh-nen-sieu-xe-ferari-2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+button{
+	width: 100px;
+	height: 40px;
+	border-radius: 10px;
+	margin-left: 20px;
+}
 	}
 </style>
 <body>
 <div class="wrap">
 	<div id="form-login">
 		<form action="/doLogin" method="post">
-			<h2>Form Login </h2>
+			<h2 style="color: white;">FORM LOGIN </h2>
 			<div class="InputWithIcon">
 				<i class="fa fa-user" aria-hidden="true"></i>
 				<input type="text" name="txtusername" placeholder="Enter username" id="txtusername">
@@ -90,9 +105,16 @@ h2{
 
 		</form>
 		<a href="/register">
-		<input type="submit" name="Register" id="btn-login" value="Register">			
+		<input type="submit" name="Register" id="btn-login" value="Register">	
+				
 		</a>
+	<p style="margin-left:150px; color:white">Login With:</p>	
+
+	<button style="background-color: rgb(43, 43, 105);color:white;font-family:cursive;">	<i class="fa fa-facebook"></i> Facebook </button>
+	<button style="background-color:rgb(221, 39, 76);color:white;font-family:cursive;"> 	<i class="fa fa-google"></i> Google+</button>
+	<button style="background-color:rgb(109, 147, 230) ;color:white;font-family:cursive;">	<i class="fa fa-twitter "></i> Twitter</button>
 	</div>
+
 </div>
 </body>
 </html>

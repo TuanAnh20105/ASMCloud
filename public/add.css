@@ -1,0 +1,38 @@
+body{
+    
+    background-image: url(https://luxuo.vn/wp-content/uploads/2020/12/03-MC20-white-background-scaled.jpg);
+    background-repeat: no-repeat;
+   background-size: cover;
+}
+ b{
+    font-size: 100px;
+    text-align: center;
+    margin-left:400px ;
+    
+}
+#left{
+    margin-top: 50px;
+    margin-left: 500px;
+    width: 700px;
+    height: auto;
+    border-radius: 1px;
+    
+
+}
+input[type=text] {
+    width: 450px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 30px;
+    margin-top: 30px;
+    background:none;
+    
+  }
+  button{
+      width: 100px;
+      height: 40px;
+      border-radius: 30px;
+      background:white;
+      margin: 50px 60px;
+  }

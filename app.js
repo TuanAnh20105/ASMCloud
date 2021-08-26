@@ -15,9 +15,10 @@ APP.set('view engine','hbs')
 var i = false;
 APP.post('/update',async (req,res)=>{
     const id = req.body.id;
-    const nameInput = req.body.txtName;
-    const tuoiInput = req.body.txtTuoi;
-    await updatecar(id,nameInput,tuoiInput);
+    const nameInput = req.body.txtname;
+    const imageInput = req.body.txtimage;
+    const priceInput = req.body.txtprice;
+    await updatecar(id,nameInput,imageInput,priceInput);
     res.redirect('/');
 })
 
@@ -72,7 +73,11 @@ APP.post('/doLogin',async (req,res)=>{
     }
     
 })
+APP.get('/addProduct' , (req , res)=>{
 
+    res.render('addProduct');
+ 
+ })
 APP.post('/insert',async (req,res)=>{
     const nameInput = req.body.txtName;
     const tuoiInput = req.body.txtPrice;
@@ -104,6 +109,7 @@ APP.post('/search',async (req,res)=>{
     const allcars = await searchcar(searchInput);
     res.render('index',{data:allcars})
 })
+
 
 APP.get('/' ,requiresLogin, async (req,res)=>{
     const allcars = await getAllcar();

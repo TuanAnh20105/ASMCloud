@@ -1,6 +1,4 @@
 const {MongoClient,ObjectId} = require('mongodb');
-
-//const URL = 'mongodb://localhost:27017';
 var URL = "mongodb+srv://anhntgch190543:Anhtuan1234@cluster0.xcwbs.mongodb.net/test";
 
 const DATABASE_NAME = "GCH0803DB"
@@ -48,10 +46,9 @@ async function getcarById(idInput){
     return dbo.collection("cars").findOne({_id:ObjectId(idInput)});
 }
 
-async function updatecar(id,nameInput,tuoiInput){
+async function updatecar(id,nameInput,imageInput,priceInput){
     const dbo = await getDB();
-    dbo.collection("cars").updateOne({_id:ObjectId(id)},{$set:{name:nameInput,tuoi:tuoiInput}})
-
+    dbo.collection("cars").updateOne({_id:ObjectId(id)},{$set:{name:nameInput,image:imageInput,prices:priceInput}})
 }
 async function checkUserRole(nameI,passI){
     const dbo = await getDB();
