@@ -30,17 +30,18 @@
 	<div id="center1" style="margin-left: 600px ; width: 300px;">
 		<input type="text" name="id" id="" value="{{car._id}}"><br>
 		<b>Name of Product Product:</b>> <br>
-		<input type="text" name="txtname" id="" value="{{car.name}}"><br>
+		<input type="text" name="txtname" id="" value="{{car.name}}"class="error" ><br>
+		<h2>{{error.nameEdit}}</h2>
 		<b>Image of Product:</b> <br>
-		<img src="{{car.image}}" width="80%" alt=""> <br>
+		<img src="{{car.image}}" width="80%" alt=""class="error"> <br>
 		
 		<input type="text" name="txtimage" id="" value="{{car.image}}"><br>
+
 		<b>Price of product:</b>> <br>
-		<input type="text" name="txtprice" id=""  value=" {{car.prices}}"> <br>
+		<input type="text" name="txtprice" id=""  value=" {{car.prices}}" class="error"> <br>
+		<h2>{{error.priceEdit}}</h2>
 	<input type="submit"  value="SUBMIT" id="">	
 	</form>
-
-
 <div id="center1" style="width: 300px;">
 	<div id="right" style=" margin-left: 600px;">
 

@@ -53,7 +53,7 @@
 		<a href="#" class="logo"><i class="fas fa-car"></i> ATN Company</a>
 		<nav class="navbar">
 			<a class="" href="#"><b>HOME</b></button></a>
-			<a class="" href="/allProductBuy"> <b>Infomation of Customer</b></a>
+			<a class="" href="#"> <b>Infomation of Customer</b></a>
 			<a class="" href="/addProduct"><b>Add Product </b></a>
 			<a class="" href="/Sedan"><b>Login For Customer</b></a>
 			<a class="" href="/Login"><b>Logout</b></a>
@@ -64,7 +64,7 @@
 			<a class="fas fa-shopping-cart"></a>
 		</div>
 	</header>
-	<h1 style=" font-size:100px; margin-left:200px;margin-top:100px">WELCOME TO ADMIN</h1>
+	<h1 style=" font-size:80px; margin-left:200px;margin-top:100px">ALL PRODUCTS PURCHASED</h1>
 
 	<div id="re" style="float: left;width:100%; margin-left:850px; margin-bottom:30px ">
 		<form action="/search" method="post">
@@ -76,12 +76,15 @@
 	<div id="right">
 		<table id="table">
 			<tr>
-				<th>ProductID</th>
-				<th>ProductName</th>
+				<th>ID</th>
+				<th>Name User</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Name Product</th>
 				<th style="width: 200px;">Image</th>
 				<th>Price</th>
-				<th>Delete</th>
-				<th>Update</th>
+                <th>Date Buy</th>
+
 			</tr>
 			<tr>
 				{{#each data}}
@@ -89,14 +92,16 @@
 
 			<tr>
 				<td>{{_id}}</td>
-				<td style=" width:200px; text-align:center"> {{name}} </td>
-
+				<td style=" width:200px; text-align:center"> {{nameuser}} </td>
+                <td style=" width:200px; text-align:center"> {{Address}} </td>
+                <td style=" width:200px; text-align:center"> {{PhoneNumber}} </td>
+                <td style=" width:200px; text-align:center"> {{name}} </td>
 				<td style=" width:300px"><img class="image" src="{{image}}  "></td>
 
 				<td style=" width:100px;text-align:center"> {{prices}} </td>
-				<td style=" width:100px;text-align:center"><a href="/delete?id={{_id}}"
-						onclick="return confirm('Are your sure?')">Delete</a></td>
-				<td style=" width:100px;text-align:center"> <a href="/edit?id={{_id}}">Edit</a></td>
+                <td style=" width:100px;text-align:center"> {{date}} </td>
+				
+		
 			</tr>
 			{{/each}}
 			</tr>

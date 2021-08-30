@@ -90,10 +90,12 @@ h2{
 			<div class="InputWithIcon">
 				<i class="fa fa-user" aria-hidden="true"></i>
 				<input type="text" name="txtusername" placeholder="Enter username" id="txtusername">
+				<span style="color: rgb(14, 13, 13); background: red;" class="error">{{error.username}}</span>
 			</div>
 			<div class="InputWithIcon">
 				<i class="fa fa-lock" aria-hidden="true"></i>
 				<input type="password" name="txtpassword" placeholder="Enter password" id="txtpassword">
+				<span style="color: rgb(14, 13, 13); background: red " class="error">{{error.password}}</span>
 			</div>
             <select  name="role" class="select">
             <option value="admin">Admin</option>

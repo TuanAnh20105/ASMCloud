@@ -40,6 +40,11 @@ async function getAllcar() {
     const allcars = await dbo.collection("cars").find({}).toArray();
     return allcars;
 }
+async function getAllProductBuy() {
+    const dbo = await getDB();
+    const allProducts = await dbo.collection("BuyProducts").find({}).toArray();
+    return allProducts;
+}
 
 async function getcarById(idInput){
     const dbo = await getDB();
@@ -61,4 +66,4 @@ async function checkUserRole(nameI,passI){
     }
 }
 
-module.exports = {getDB,insertcar,deletecar,searchcar,getAllcar,getcarById,updatecar,insertUser,checkUserRole,insertBuyProduct}
+module.exports = {getAllProductBuy,getDB,insertcar,deletecar,searchcar,getAllcar,getcarById,updatecar,insertUser,checkUserRole,insertBuyProduct}
