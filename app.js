@@ -5,38 +5,26 @@ const session = require('express-session') //khai báo thư viện check passwor
 const {getAllProductBuy, checkUserRole, insertUser, insertcar, deletecar, searchcar, getAllcar, getcarById, updatecar, insertBuyProduct } = require('./databaseHandler');
 
 const APP = EXPRESS();
-APP.use(EXPRESS.static("/public")); // khai báo sử dụng css
+APP.use(EXPRESS.static('public')); // khai báo sử dụng css
 APP.use(EXPRESS.static(__dirname + '/public'));
 // Use the session middleware
-APP.use(session({ secret: '124447yd@@$%%#', cookie: { maxAge: 60000 }, saveUninitialized: false, resave: false }))
+APP.use(session({ secret: '124447yd@@$%%#', cookie: { maxAge: 600000000 }, saveUninitialized: false, resave: false }))
 
 APP.use(EXPRESS.urlencoded({ extended: true }))
-APP.set('view engine', 'hbs')
-var i = false;
+    APP.set('view engine', 'hbs')
 APP.post('/update', async (req, res) => {
-    let error=[];
+    //let error=[];
     flag=true;
     const id = req.body.id;
     const nameInput = req.body.txtname;
     const imageInput = req.body.txtimage;
     const priceInput = req.body.txtprice;
-    if (nameInput == "" || imageInput == "" ) {
-        error[""]="vui lòng nhập thông tin vào ";
-        flag=false;
-    }
-    if(nameInput.length<2||priceInput<0){
-        error["nameEdit"]="dữ liệu nhập sai , vui lòng nhập lại";
-        flag=false;
-    }
-    if(flag==false){
-        res.render('edit',{error:error})
-    }
-    else {
+
+    
         await updatecar(id, nameInput, imageInput, priceInput);
         res.redirect('/index');
-    }
-    // await updatecar(id,nameInput,imageInput,priceInput);
-    // res.redirect('/');
+    
+
 })
 
 APP.get('/edit', async (req, res) => {
@@ -56,30 +44,11 @@ APP.post('/register', async (req, res) => {
     const passInput = req.body.txtpassword;
     const roleInput = req.body.role;
     // const test = passInput.trim();
-    if (nameInput.length < 6) {
-        error["username"] = 'bạn phải ghi nhiều hơn 6 kí tự hoặc không được để trống'
-        flag = false
 
-    }
-    // if (passInput!=test) {
-    //     error["password"] = 'khong được để giấu cách trong câu';
-    //     flag = false
-    // }
-    for(var i=0 ; i< passInput.length;i++){
-        if(passInput.charCodeAt(i)>=33&& passInput.charCodeAt(i)<=47){          
-            error["password"] = 'không được để kí tự trong câu'
-            flag=false
-            break;
-        }
-
-    }
-    if (flag == false) {
-        res.render('register', { error: error })
-    }
-    else {
+    
         await insertUser({ name: nameInput, pass: passInput, role: roleInput })
         res.redirect('/login')
-    }
+    
 })
 
 APP.post('/add', async (req, res) => {
@@ -129,7 +98,7 @@ APP.get('/addProduct', (req, res) => {
 APP.post('/insert', async (req, res) => {
     const nameInput = req.body.txtName;
     const tuoiInput = req.body.txtPrice;
-    const pictureInput = req.body.txtImage;
+    const pictureInput =  req.body.txtImage;
     const newcar = { name: nameInput, prices: Int32(tuoiInput), image: pictureInput };
     await insertcar(newcar);
     res.redirect('/');
@@ -170,7 +139,7 @@ APP.get('/', requiresLogin, async (req, res) => {
 })
 APP.get('/add', (req, res) => {
 
-    res.redirect('add');
+    res.redirect('/add');
 
 })
 APP.get('/register', (req, res) => {
